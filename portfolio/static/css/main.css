@@ -1,0 +1,44 @@
+.icone{
+    background: url('/images/icons/home.png');
+}
+
+.foto-perfil{
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.icone-menu{
+    margin-right: 5%;
+    width: 2em;
+}
+
+li a{
+    font-style: italic;
+}
+
+.divider-menu{
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+.card-content .divider{
+    margin-bottom: 0.5em;
+}
+
+.titulo{
+    margin-top: 2em;
+}
+
+.titulo h4{
+    padding-bottom: 0.3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.conteudo-sessao{
+    margin-bottom: 4em;
+}
+
+h5{
+    padding: 1em;
+}
