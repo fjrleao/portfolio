@@ -1,11 +1,13 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <link type="text/css" rel="stylesheet" href={% static 'css/materialize.min.css' %} media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href={% static 'css/main.css' %} />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,16 +22,16 @@
             <ul class="sidenav sidenav-fixed z-depth-2" id="mobile">
                 <div class="row foto-perfil center-align">
                     <div class="col s12">
-                        <img class="responsive-img circle" width="100" src="images/foto.png">
+                        <img class="responsive-img circle" width="100" src={% static 'images/foto.png' %}>
                     </div>
                 </div>
 
-                <li><a href="#home"> <img src="images/icons/home.png" class="icone-menu" alt="home">Home</a></li>
-                <li><a href="#sobre"> <img src="images/icons/about.png" class="icone-menu" alt="about">Sobre</a></li>
-                <li><a href="#competencias"> <img src="images/icons/skills.png" class="icone-menu" alt="skills">Competências</a></li>
-                <li><a href="#habilidades"> <img src="images/icons/knowledge.png" class="icone-menu" alt="knowledge">Habilidades</a></li>
-                <li><a href="#projetos"> <img src="images/icons/project.png" class="icone-menu" alt="project">Projetos</a></li>
-                <li><a href="#contato"> <img src="images/icons/contact.png" class="icone-menu" alt="contact"> Entre em contato</a></li>
+                <li><a href="#home"> <img src={% static 'images/icons/home.png' %} class="icone-menu" alt="home">Home</a></li>
+                <li><a href="#sobre"> <img src={% static 'images/icons/about.png' %} class="icone-menu" alt="about">Sobre</a></li>
+                <li><a href="#competencias"> <img src={% static 'images/icons/skills.png' %} class="icone-menu" alt="skills">Competências</a></li>
+                <li><a href="#habilidades"> <img src={% static 'images/icons/knowledge.png' %} class="icone-menu" alt="knowledge">Habilidades</a></li>
+                <li><a href="#projetos"> <img src={% static 'images/icons/project.png' %} class="icone-menu" alt="project">Projetos</a></li>
+                <li><a href="#contato"> <img src={% static 'images/icons/contact.png' %} class="icone-menu" alt="contact"> Entre em contato</a></li>
 
                 <div class="row divider-menu">
                     <div class="divider"></div>
@@ -38,12 +40,12 @@
                 <div class="row">
                     <div class="col offset-xl4 offset-l4 offset-m4 offset-s4">
                         <a href="https://github.com/fjrleao" target="_blank">
-                            <img src="images/icons/github.png" class="icone-menu" alt="github">
+                            <img src={% static 'images/icons/github.png' %} class="icone-menu" alt="github">
                         </a>
                     </div>
                     <div class="col">
                         <a href="https://www.linkedin.com/in/fjrleao" target="_blank">
-                            <img src="images/icons/linkedin.png" class="icone-menu" alt="linkedin">
+                            <img src={% static 'images/icons/linkedin.png' %} class="icone-menu" alt="linkedin">
                         </a>
                     </div>
                 </div>
@@ -61,7 +63,7 @@
                 </nav>
                 <div class="parallax-container">
                     <div class="parallax">
-                        <img src="images/parallax/tecnologia.jpg">
+                        <img src={% static 'images/parallax/tecnologia.jpg' %}>
                     </div>
                 </div>
             </div>
@@ -94,7 +96,7 @@
             <div class="row">
                 <div class="parallax-container">
                     <div class="parallax">
-                        <img src="images/parallax/sobre.jpg">
+                        <img src={% static 'images/parallax/sobre.jpg' %}>
                     </div>
                 </div>
             </div>
@@ -148,7 +150,7 @@
             <div class="row">
                 <div class="parallax-container">
                     <div class="parallax">
-                        <img src="images/parallax/competencias.jpg">
+                        <img src={% static 'images/parallax/competencias.jpg' %}>
                     </div>
                 </div>
             </div>
@@ -210,7 +212,7 @@
             <div class="row">
                 <div class="parallax-container">
                     <div class="parallax">
-                        <img src="images/parallax/habilidades.jpg">
+                        <img src={% static 'images/parallax/habilidades.jpg' %}>
                     </div>
                 </div>
             </div>
@@ -310,7 +312,7 @@
             <div class="row">
                 <div class="parallax-container">
                     <div class="parallax">
-                        <img src="images/parallax/projetos.jpg">
+                        <img src={% static 'images/parallax/projetos.jpg' %}>
                     </div>
                 </div>
             </div>
@@ -410,7 +412,7 @@
             <div class="row">
                 <div class="parallax-container">
                     <div class="parallax">
-                        <img src="images/parallax/contato.jpg">
+                        <img src={% static 'images/parallax/contato.jpg' %}>
                     </div>
                 </div>
             </div>
@@ -462,8 +464,8 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src={% static 'js/main.js' %}></script>
+    <script type="text/javascript" src={% static 'js/materialize.min.js' %}></script>
 </body>
 
 </html>
