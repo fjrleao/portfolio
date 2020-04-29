@@ -1,7 +1,3 @@
-.icone{
-    background: url('/images/icons/home.png');
-}
-
 .foto-perfil{
     margin-top: 3em;
     margin-bottom: 3em;
@@ -26,7 +22,7 @@ li a{
 }
 
 .titulo{
-    margin-top: 2em;
+    margin-top: 1.2em;
 }
 
 .titulo h4{
@@ -40,5 +36,18 @@ li a{
 }
 
 h5{
-    padding: 1em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5;
+    padding-left: 1em;
+}
+
+.row .brand-logo{
+    background-color: black;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.col .sidenav-trigger i{
+    padding-left: 1em;
+    padding-right: 1em;
 }

@@ -51,16 +51,27 @@
                 </div>
             </ul>
         </div>
+
+        <!--CORPO DA PAGINA-->
         <div class="col s12 m12 l9 xl10">
             
             <!--HOME-->
-            <div class="row">
-                <nav class="black">
+            <div class="row titulo">
+                <nav class="transparent z-depth-0">
                     <div class="nav-wrapper">
-                        <a name="home" class="brand-logo center white-text">Home</a>
-                        <a href="#" data-target="mobile" class="sidenav-trigger white-text"><i class="material-icons">menu</i></a>
+                        <div class="col right xl3 l6 m8 s10">
+                            <div class="row">
+                                <a name="home" class="brand-logo black white-text">Home</a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <a href="#" data-target="mobile" class=" sidenav-trigger black white-text"><i class="material-icons">menu</i></a>
+                        </div>
                     </div>
                 </nav>
+            </div>
+
+            <div class="row">
                 <div class="parallax-container">
                     <div class="parallax">
                         <img src={% static 'images/parallax/tecnologia.jpg' %}>
@@ -92,6 +103,8 @@
                 <div class="col offset-s4 s8 offset-m6 m6 offset-l7 l5 offset-xl8 xl4 black z-depth-2 titulo">
                     <h4 class="white-text">Sobre</h4>
                 </div>
+
+                
             </div>
             <div class="row">
                 <div class="parallax-container">
