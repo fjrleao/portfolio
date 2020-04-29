@@ -39,6 +39,7 @@ h5{
     padding-bottom: 0.5em;
     padding-top: 0.5;
     padding-left: 1em;
+    white-space: pre-line;
 }
 
 .row .brand-logo{

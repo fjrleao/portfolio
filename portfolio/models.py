@@ -3,8 +3,8 @@ from django.db import models
 class Sessao(models.Model):
 
     titulo = models.CharField(max_length=25, null=False, unique=True)
-    icone_menu = models.CharField(max_length=255)
-    imagem_parallax = models.CharField(max_length=255)
+    icone_menu = models.CharField(max_length=512)
+    imagem_parallax = models.CharField(max_length=512)
     form_contato = models.BooleanField()
     slug = models.SlugField()
 
@@ -26,7 +26,7 @@ class Texto(models.Model):
 class Card(models.Model):
 
     titulo = models.CharField(max_length=120, null=False)
-    conteudo = models.CharField(max_length=255, null=False)
+    conteudo = models.TextField(max_length=255, null=False)
     sessao = models.ForeignKey(Sessao, on_delete=models.CASCADE)
 
     def __str__(self):

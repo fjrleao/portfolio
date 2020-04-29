@@ -22,16 +22,13 @@
             <ul class="sidenav sidenav-fixed z-depth-2" id="mobile">
                 <div class="row foto-perfil center-align">
                     <div class="col s12">
-                        <img class="responsive-img circle" width="100" src={% static 'images/foto.png' %}>
+                        <img class="responsive-img circle" width="100" src='https://previews.dropbox.com/p/thumb/AAyY2n962N6lLYkKXSpOq53pn8GfAB4xo6YUC539z-keaxhvDfe-cPKQnpNnoSdmjd9ZA5gQrHCWeUwDlpLaitky0KI6QwTl1mepuaQ0eUpMkgZ_0xzShpH3cl0ib61oPn4mGEjLKgCOnOneST8DzZxzlnDOW1ewJk0Vppv4koPhvWVTSVzPXi5Q9nGZ63fuJGh6euYBYJigqPnyXZBlPoBKSJqBpUUAR8rB1hpuerQcubaowSDkkecoUN41l3YUWvr2BZPZv7HrkKnoPZbudBUw6j33HWRe4-e81tiGSsGXg39Pkr2-iBO7E-ZudbTR3inEEOu9L2cCRpjqgLC3Dsb-a200VJZzebs6TpVu3gB79w/p.png?size=2048x1536&size_mode=3'>
                     </div>
                 </div>
 
-                <li><a href="#home"> <img src={% static 'images/icons/home.png' %} class="icone-menu" alt="home">Home</a></li>
-                <li><a href="#sobre"> <img src={% static 'images/icons/about.png' %} class="icone-menu" alt="about">Sobre</a></li>
-                <li><a href="#competencias"> <img src={% static 'images/icons/skills.png' %} class="icone-menu" alt="skills">Competências</a></li>
-                <li><a href="#habilidades"> <img src={% static 'images/icons/knowledge.png' %} class="icone-menu" alt="knowledge">Habilidades</a></li>
-                <li><a href="#projetos"> <img src={% static 'images/icons/project.png' %} class="icone-menu" alt="project">Projetos</a></li>
-                <li><a href="#contato"> <img src={% static 'images/icons/contact.png' %} class="icone-menu" alt="contact"> Entre em contato</a></li>
+                {% for sessao in sessoes %}
+                    <li><a href="#{{sessao.slug}}"> <img src={{sessao.icone_menu}} class="icone-menu">{{sessao.titulo}}</a></li>
+                {% endfor %}
 
                 <div class="row divider-menu">
                     <div class="divider"></div>
@@ -40,12 +37,12 @@
                 <div class="row">
                     <div class="col offset-xl4 offset-l4 offset-m4 offset-s4">
                         <a href="https://github.com/fjrleao" target="_blank">
-                            <img src={% static 'images/icons/github.png' %} class="icone-menu" alt="github">
+                            <img src="https://previews.dropbox.com/p/thumb/AAyjk9mU2_yjZHPezbBy-5clVu96hnXps_iwCCOikR4Bqmx5zldSIIWvCYsrHXA-fvrszrH_uwSAu-5K2PMCS95jgvO3uzkC6sbIUEeVYipUTwM4fTp3WZ2awvIasNhTHwATqmLtBtvdfsCjAk4oum3SkK1FesowDpNm10U-pHt5cMEtLTgClJ_vBjTrK-1ef0ryG-Rt29q86OUzfJwuqKSlKQy9oW45ZL9A0EdhJJjq_-aRXPzzNbc9VBjpTuu9WLBVDgK5J9rq_HNZHJ6pA4n27DRSJTKgL7xyh5hXjZv8cTp5Z5YtZiKDsRtIq6c87fJWOMU6kMzkKbpftL0K5ZNUiXziKKF2OAQ7_cxqnyJSFg/p.png?size=2048x1536&size_mode=3" class="icone-menu" alt="github">
                         </a>
                     </div>
                     <div class="col">
                         <a href="https://www.linkedin.com/in/fjrleao" target="_blank">
-                            <img src={% static 'images/icons/linkedin.png' %} class="icone-menu" alt="linkedin">
+                            <img src="https://previews.dropbox.com/p/thumb/AAzqL_9w95D0uI7Hv68FkArXHfH__ys-EIX3xdIj80gkRtNdr7tnW9q-Imr9iwNKHKvy2-o3oXhDkRemU3W-hoTNlZuAF-GL9S-cojvKidopgmJhBKVIg8ImowyLvSBoRUSVPUEy4X4gLeruHFzT5XifW0SpRdHb0ZMbZiT4txKStcO7dibTqjsmf5jzhncEgyHrnmFoHtUCeRwBQ7Cxr-Z16r6mvWON_GL8ehbenkENqPWXRw6D2NRYeJ2fvwkSIHSbb-5g7tlSdzzNIOzRaNb1-KH6w6txxtdjACWYAglamtuJ7y0b335Zw9YL9plbEIx4ysG_2r90wXAOvHt8wQg8v36GAS8mN6K02AqHNwSUHQ/p.png?size=2048x1536&size_mode=3" class="icone-menu" alt="linkedin">
                         </a>
                     </div>
                 </div>
@@ -55,6 +52,59 @@
         <!--CORPO DA PAGINA-->
         <div class="col s12 m12 l9 xl10">
             
+            {% for sessao in sessoes %}
+                <div class="row titulo">
+                    <nav class="transparent z-depth-0">
+                        <div class="nav-wrapper">
+                            <div class="col right xl3 l6 m8 s10">
+                                <div class="row">
+                                    <a name={{sessao.slug}} class="brand-logo black white-text">{{sessao.titulo}}</a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <a href="#" data-target="mobile" class=" sidenav-trigger black white-text"><i class="material-icons">menu</i></a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="parallax-container">
+                        <div class="parallax">
+                            <img src={{sessao.imagem_parallax}}>
+                        </div>
+                    </div>
+                </div>
+                <div class="row conteudo-sessao">
+                    <div class="col">
+                        
+                            {% for card in cards %}
+                                {% if card.sessao == sessao %}
+                                    <div class="col s12 m6 l4 xl6">
+                                        <div class="card blue-grey z-depth-3">
+                                            <div class="card-content white-text">
+                                                <span class="card-title">{{card.titulo}}</span>
+                                                <div class="divider"></div>
+                                                <p>{{card.conteudo}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                       
+                    </div>
+                    {% for texto in textos %}
+                        {% if texto.sessao == sessao %}
+                            <div class="col xl12 m12 offset-l1 l10 z-depth-2 white">
+                                <h5>
+                                    {{texto.conteudo}}
+                                </h5>
+                            </div>
+                        {% endif %}
+                    {% endfor %}   
+                </div>
+            {% endfor %}
+
             <!--HOME-->
             <div class="row titulo">
                 <nav class="transparent z-depth-0">
