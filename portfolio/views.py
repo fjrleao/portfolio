@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Sessao, Texto, Card, Modal
+from django.views.decorators.csrf import csrf_protect
 
 def index(request):
     template = 'index.html'
@@ -14,3 +15,12 @@ def index(request):
         "modals": modals
     }
     return render(request, template, context)
+
+@csrf_protect
+def email(request):
+    if request.POST:
+        print("nome\n " + request.POST.get('nome'))
+        print("email:\n " + request.POST.get('email'))
+        print("assunto:\n " + request.POST.get('assunto'))
+        print("texto:\n " + request.POST.get('texto'))
+        return redirect(index)

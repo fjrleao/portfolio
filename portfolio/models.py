@@ -16,7 +16,7 @@ class Sessao(models.Model):
 
 class Texto(models.Model):
 
-    titulo = models.CharField(max_length=120)
+    titulo = models.CharField(max_length=120, null=True)
     conteudo = models.TextField(null=False)
     sessao = models.ForeignKey(Sessao, on_delete=models.CASCADE)
 

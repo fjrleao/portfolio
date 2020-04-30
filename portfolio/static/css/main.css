@@ -54,11 +54,15 @@ h3{
 }
 
 .col .sidenav-trigger i{
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 #corpo-modal{
     white-space: pre-line;
     text-align: justify;
+}
+
+.link{
+    margin-bottom: 0em;
 }
