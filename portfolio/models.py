@@ -33,9 +33,10 @@ class Card(models.Model):
         return self.titulo
 
 class Modal(models.Model):
-    titulo = models.CharField(max_length=25, null=False)
+    titulo = models.CharField(max_length=25, null=False, unique=True)
     conteudo = models.TextField(null=False)
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
+    slug = models.SlugField()
 
     def __str__(self):
         return self.titulo

@@ -23,3 +23,6 @@ class CardAdmin(admin.ModelAdmin):
 class ModalAdmin(admin.ModelAdmin):
     list_display = ['titulo', 'card']
     search_fields = ['titulo']
+    prepopulated_fields = {
+        'slug': ('titulo', )
+        }

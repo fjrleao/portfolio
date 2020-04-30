@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Materialbox.init(materialBoxed)
 })
 
-function abreModal(id){
+function abreModal(botao){
 
-	let titulo = document.getElementById('competencias-titulo').textContent
-	let corpo = document.getElementById('competencias-corpo').textContentx
+	let corpo = document.getElementById('corpo-'+botao.name).textContent
+	let titulo = document.getElementById('titulo-'+botao.name).textContent
 	let titulo_modal = document.getElementById('titulo-modal')
 	let corpo_modal = document.getElementById('corpo-modal')
 

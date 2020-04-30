@@ -52,12 +52,15 @@
         <!--CORPO DA PAGINA-->
         <div class="col s12 m12 l9 xl10">
             {% for sessao in sessoes %}
+                <div class="row">
+                    <a name={{sessao.slug}}></a>
+                </div>
                 <div class="row titulo">
                     <nav class="transparent z-depth-0">
                         <div class="nav-wrapper">
                             <div class="col right xl3 l6 m8 s10">
                                 <div class="row">
-                                    <a name={{sessao.slug}} class="brand-logo black white-text">{{sessao.titulo}}</a>
+                                    <a class="brand-logo black white-text">{{sessao.titulo}}</a>
                                 </div>
                             </div>
                             <div class="col">
@@ -90,7 +93,15 @@
                                         {% for modal in modals %}
                                             {% if modal.card == card %}
                                                 <div class="card-action">
-                                                    <a href="#">{{modal.titulo}}</a>
+                                                    <button class="btn waves-effect waves-light" type="submit" name="{{modal.slug}}" onClick="abreModal(this)">{{modal.titulo}}
+                                                        <i class="material-icons right">open_in_new</i>
+                                                    </button>
+                                                    <div id="titulo-{{modal.slug}}" hidden>
+                                                        {{modal.titulo}}
+                                                    </div>
+                                                    <div id="corpo-{{modal.slug}}" hidden>
+                                                        {{modal.conteudo}}
+                                                    </div>
                                                 </div>
                                             {% endif %}
                                         {% endfor %}
@@ -98,21 +109,6 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
-                        <div class="row">
-    <div class="col s12 m6">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">Card Title</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
                     </div>
                     {% for texto in textos %}
                         {% if texto.sessao == sessao %}
@@ -162,7 +158,7 @@
                         </div>
                     {% endif %}
                 </div>
-            {% endfor %} 
+            {% endfor %}
         </div>
 
         <div id="modal" class="modal">
