@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Sessao, Texto, Card, Modal
+from .models import Sessao, Texto, Card, Modal, Perfil, Link
 from django.views.decorators.csrf import csrf_protect
 
 def index(request):
@@ -8,11 +8,15 @@ def index(request):
     textos = Texto.objects.all()
     cards = Card.objects.all()
     modals = Modal.objects.all()
+    perfil = Perfil.objects.first()
+    links = Link.objects.all()
     context = {
         "sessoes" : sessoes,
         "textos" : textos,
         "cards": cards,
-        "modals": modals
+        "modals": modals,
+        "perfil": perfil,
+        "links" : links
     }
     return render(request, template, context)
 

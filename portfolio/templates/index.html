@@ -9,7 +9,7 @@
     <link type="text/css" rel="stylesheet" href={% static 'css/materialize.min.css' %} media="screen,projection" />
     <link type="text/css" rel="stylesheet" href={% static 'css/main.css' %} />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="https://uc0b8d4ed1599ed60def70624dca.previews.dropboxusercontent.com/p/thumb/AAxOCB5OS2LeQj7makecjaeQpvzQhczRWFVexGq6H-yORoNQiNV94iuuZxEiW2o2EqcltcssJ6mWqWLyU4qmLbr6BqtTf2w_G2XyVwh4n33LbeJOvJWs3rC2usPJw_cQVJjmYajCGFf8MCAQJhvTIHrCHjEku4M8lDL4DUB2ug7XjrObHPXT5k_uLH7l5b9NRl-O7UVLYzvZZkBCv8BwyFiNYE6orihYU_iO4PJjsQHJYr7WYXBQtdSux7h-nDYYFh5j8ZXzAym-1HkoFP88MQlVLwCju-AusaFlvU9hq1ONraD-tQcYRkkYbs4qb7QAALFMA3W68AP7p53bU_PTT5YJrf7ySZDqimwav5LWpdG51KIpwNTVWGuoHl6dohm2WDY9KM6TfXVyHizD_t4anFR2/p.png?fv_content=true&size_mode=5"/>
+    <link rel="shortcut icon" type="image/png" href={{perfil.favicon}}/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fábio Junior</title>
 </head>
@@ -22,10 +22,10 @@
             <ul class="sidenav sidenav-fixed z-depth-2" id="mobile">
                 <div class="row foto-perfil center-align">
                     <div class="col s12">
-                        <img class="responsive-img circle" width="100" src='https://ucfc5374bc9f505d4d15cbc9b219.previews.dropboxusercontent.com/p/thumb/AAxqCKq6rxEHS5h727Svg5wWTo2_uE1H54aCEnqiAFV7o2PObDx01DbcwDRodW5jBmKkhHI-AbFjX7EVMUeCOjC1hz8kHk79qoa12xT8PYQLOsCEzjjF-JtJ94PdCFr5Tb0v4i12GehsLSEP5N0VwH_q5QoXM3KDV_BojqnHInhzskFhNJkAcXACRWWKE9x3UiV7qncy3AiWn8c_smobZ0JsXsRsadXnMMpXdJcBhcAvKLSN1YIXruHQZWAO5gKCHBtL40aVEi-UYFlzRognT06mXM7IkjdQDT8dgYbSYCm-rbXj7y9OvrF6v-lghjoxMQ88GYJZzfgJgolOLMwecD5M-gP63tmuSMb4KzPqy9hwWnLIRWvg_7CcSeGALuM75sgdQ98263WsHCrWKdvHszJVrjrnc2sNBYMqKcHACM0KLRU8_8xgM4D7NAEyvbz_kH_sDCu39ihB5NHFCiuhsLLG/p.png?fv_content=true&size_mode=5'>
+                        <img class="responsive-img circle" width="100" src='{{perfil.foto}}'>
                     </div>
                     <div class="col s12">
-                        <h6>Fábio Junior</h6>
+                        <h6>{{perfil.nome}}</h6>
                     </div>
                 </div>
 
@@ -36,28 +36,22 @@
                 <div class="row divider-menu">
                     <div class="divider"></div>
                 </div>
-
-                <div class="row">
-                    <div class="col offset-xl4 offset-l4 offset-m4 offset-s4">
-                        <a href="https://github.com/fjrleao" target="_blank">
-                            <img src="https://image.flaticon.com/icons/svg/1051/1051326.svg" class="icone-menu" alt="github">
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://www.linkedin.com/in/fjrleao" target="_blank">
-                            <img src="https://image.flaticon.com/icons/svg/1384/1384014.svg" class="icone-menu" alt="linkedin">
-                        </a>
-                    </div>
-                </div>
-                <div class="row link">
-                    <div class="col s12">
-                        Imagens: <a href="https://pixabay.com/pt/" target="_blank">pixabay</a>
-                    </div>
-                </div>
-                <div class="row link">
-                    <div class="col s12">
-                        Icones: <a href="https://www.flaticon.com/" target="_blank">flaticon</a>
-                    </div>
+                <div class="row center-align">
+                    {% for link in links %}
+                            {% if link.tipo == 'IC' %}
+                                <div class="col link-icone offset-s3 s1">
+                                    <a href={{link.link}} target="_blank">
+                                        <img src={{link.referencia}} class="icone-menu" alt={{link.nome}}>
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="row link">
+                                    <div class="col s12">
+                                        {{link.referencia}} <a href={{link.link}} target="_blank">{{link.nome}}</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                    {% endfor %}
                 </div>
             </ul>
         </div>
@@ -124,12 +118,15 @@
                     {% for texto in textos %}
                         {% if texto.sessao == sessao %}
                             <div class="col xl12 m12 offset-l1 l10 z-depth-2 white">
-                                <h3>
-                                    {{texto.titulo}}
-                                </h3>
+                                {% if texto.titulo != None %}
+                                    <h3>
+                                        {{texto.titulo}}
+                                    </h3>
+                                {% endif %}
                                 <h5>
                                     {{texto.conteudo}}
                                 </h5>
+                                
                             </div>
                         {% endif %}
                     {% endfor %}

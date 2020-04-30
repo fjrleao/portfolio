@@ -1,5 +1,5 @@
 from django.contrib import admin
-from portfolio.models import Card, Modal, Sessao, Texto
+from portfolio.models import Card, Modal, Sessao, Texto, Perfil, Link
 
 @admin.register(Sessao)
 class SessaoAdmin(admin.ModelAdmin):
@@ -12,7 +12,7 @@ class SessaoAdmin(admin.ModelAdmin):
 @admin.register(Texto)
 class TextoAdmin(admin.ModelAdmin):
     list_display = ['titulo', 'sessao']
-    search_fields = ['titulo']
+    search_fields = ['titulo', 'conteudo']
 
 @admin.register(Card)
 class CardAdmin(admin.ModelAdmin):
@@ -26,3 +26,11 @@ class ModalAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         'slug': ('titulo', )
         }
+
+@admin.register(Perfil)
+class PerfilAdmin(admin.ModelAdmin):
+    list_display = ['nome']
+
+@admin.register(Link)
+class LinkAdmin(admin.ModelAdmin):
+    list_display = ['nome']
