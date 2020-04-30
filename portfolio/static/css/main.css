@@ -36,10 +36,15 @@ li a{
 }
 
 h5{
-    padding-bottom: 0.5em;
-    padding-top: 0.5;
+    padding-bottom: 1em;
     padding-left: 1em;
     white-space: pre-line;
+    text-align: justify;
+}
+
+h3{
+    padding-top: 0.5em;
+    padding-left: 0.5em;
 }
 
 .row .brand-logo{
