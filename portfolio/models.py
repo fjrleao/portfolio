@@ -5,7 +5,6 @@ class Sessao(models.Model):
     titulo = models.CharField(max_length=25, null=False, unique=True)
     icone_menu = models.CharField(max_length=512)
     imagem_parallax = models.CharField(max_length=512)
-    form_contato = models.BooleanField()
     slug = models.SlugField()
 
     def __str__(self):

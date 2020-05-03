@@ -130,45 +130,6 @@
                             </div>
                         {% endif %}
                     {% endfor %}
-                    {% if sessao.form_contato %}
-                        <div class="col xl12 l12 m12 s12 white z-depth-2">
-                            <h5>Me envie um email</h5>
-                            <form method="POST" action="/email">
-                                {% csrf_token %}
-                                <div class="row form-contato">
-                                    <div class="input-field black-text col s12 m12 l4 xl4">
-                                        <i class="material-icons prefix">person</i>
-                                        <input name="nome" type="text" class="validate">
-                                        <label for="nome">Nome</label>
-                                    </div>
-                                    <div class="input-field black-text col s12 m12 l4 xl4">
-                                        <i class="material-icons prefix">email</i>
-                                        <input name="email" type="text" class="validate">
-                                        <label for="email">Email</label>
-                                    </div>
-                                    <div class="input-field black-text col s12 m12 l4 xl4">
-                                        <i class="material-icons prefix">mode_edit</i>
-                                        <input name="assunto" type="text" class="validate">
-                                        <label for="assunto">Assunto</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field black-text col s12 m12 l12 xl12">
-                                        <i class="material-icons prefix">subject</i>
-                                        <textarea name="texto" class="materialize-textarea"></textarea>
-                                        <label for="textarea">Mensagem</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12 m12 l12 xl12">
-                                        <button class="btn teal accent-4 waves-effect waves-light" type="submit">Enviar email
-                                            <i class="material-icons right">send</i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    {% endif %}
                 </div>
             {% endfor %}
         </div>
