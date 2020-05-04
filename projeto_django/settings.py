@@ -27,8 +27,7 @@ SECRET_KEY = 'asdasd76a8s768das'
 DEBUG = os.environ.get('DEBUG') == True
 
 ALLOWED_HOSTS = [
-    'https://fjrleao.herokuapp.com/',
-    'https://fjrleao.herokuapp.com/admin/portfolio/perfil/'
+    'https://fjrleao.herokuapp.com/'
 ]
 
 
