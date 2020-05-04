@@ -1,1 +1,1 @@
-web: gunicorn projeto-django.wsgi
+web: gunicorn projeto_django.wsgi --timeout 5
