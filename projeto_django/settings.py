@@ -28,7 +28,7 @@ DEBUG = os.environ.get('DEBUG') == True
 
 ALLOWED_HOSTS = [
     'https://fjrleao.herokuapp.com/',
-    'https://fjrleao.herokuapp.com/*/'
+    'https://fjrleao.herokuapp.com/admin/portfolio/perfil/'
 ]
 
 
