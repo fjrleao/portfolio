@@ -30,8 +30,6 @@ ALLOWED_HOSTS = [
     'https://fjrleao.herokuapp.com/'
 ]
 
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
-
 
 # Application definition
 
@@ -42,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'portfolio'
 ]
 
 MIDDLEWARE = [
