@@ -1,6 +1,6 @@
 from django.db import models
 
-'''class Sessao(models.Model):
+class Sessao(models.Model):
 
     titulo = models.CharField(max_length=25, null=False, unique=True)
     icone_menu = models.CharField(max_length=512)
@@ -66,4 +66,4 @@ class Link(models.Model):
     link = models.CharField(max_length=255, null=False)
 
     def __str__(self):
-        return self.nome'''
+        return self.nome

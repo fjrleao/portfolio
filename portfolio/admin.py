@@ -1,4 +1,4 @@
-'''from django.contrib import admin
+from django.contrib import admin
 from portfolio.models import Card, Modal, Sessao, Texto, Perfil, Link
 
 @admin.register(Sessao)
@@ -33,4 +33,4 @@ class PerfilAdmin(admin.ModelAdmin):
 
 @admin.register(Link)
 class LinkAdmin(admin.ModelAdmin):
-    list_display = ['nome']'''
+    list_display = ['nome']
