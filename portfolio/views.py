@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import Sessao, Texto, Card, Modal, Perfil, Link
+'''from .models import Sessao, Texto, Card, Modal, Perfil, Link
 
 def index(request):
     try:
@@ -20,5 +20,5 @@ def index(request):
         }
         return render(request, template, context)
     except:
-        return HttpResponse('<h3>Erro inesperado, configure seus dados no banco para exibir a página</h3>')
+        return HttpResponse('<h3>Erro inesperado, configure seus dados no banco para exibir a página</h3>')'''
 
