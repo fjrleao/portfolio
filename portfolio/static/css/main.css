@@ -21,6 +21,10 @@ li a{
     margin-bottom: 0.5em;
 }
 
+.card-content p{
+    white-space: pre-line;
+}
+
 .titulo{
     margin-top: 1.2em;
 }

@@ -18,6 +18,9 @@ class TextoAdmin(admin.ModelAdmin):
 class CardAdmin(admin.ModelAdmin):
     list_display = ['titulo', 'sessao']
     search_fields = ['titulo']
+    prepopulated_fields = {
+        'slug': ('titulo', )
+        }
 
 @admin.register(Modal)
 class ModalAdmin(admin.ModelAdmin):

@@ -98,13 +98,13 @@
                                         {% for modal in modals %}
                                             {% if modal.card == card %}
                                                 <div class="card-action">
-                                                    <button class="btn waves-effect waves-light light-blue accent-4" type="submit" name="{{modal.slug}}" onClick="abreModal(this)">{{modal.titulo}}
+                                                    <button class="btn waves-effect waves-light light-blue accent-4" type="submit" name="{{modal.slug}}-{{card.slug}}" onClick="abreModal(this)">{{modal.titulo}}
                                                         <i class="material-icons right">open_in_new</i>
                                                     </button>
-                                                    <div id="titulo-{{modal.slug}}" hidden>
+                                                    <div id="titulo-{{modal.slug}}-{{card.slug}}" hidden>
                                                         {{modal.titulo}}
                                                     </div>
-                                                    <div id="corpo-{{modal.slug}}" hidden>
+                                                    <div id="corpo-{{modal.slug}}-{{card.slug}}" hidden>
                                                         {{modal.conteudo}}
                                                     </div>
                                                 </div>

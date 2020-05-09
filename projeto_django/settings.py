@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8((akh9#v&30x@h+hnlkejf7sd8$gr41n75^sh@xo#1^n3jt!o'
+#SECRET_KEY = '8((akh9#v&30x@h+hnlkejf7sd8$gr41n75^sh@xo#1^n3jt!o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -124,10 +125,12 @@ STATIC_URL = '/portfolio/static/'
 ##CONFIGURAÇÕES PARA AMBIENTE DE PRODUÇAO
 #----------------------------------------#
 
-#import django_heroku
+django_heroku.settings(locals())
 
-#django_heroku.settings(locals())
+ALLOWED_HOSTS = [ 'https://fjrleao.herokuapp.com/']
 
-#ALLOWED_HOSTS = [ 'https://fjrleao.herokuapp.com/']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+DEBUG = os.environ.get('DEBUG') == True
