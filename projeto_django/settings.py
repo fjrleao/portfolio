@@ -127,7 +127,7 @@ STATIC_URL = '/portfolio/static/'
 
 django_heroku.settings(locals())
 
-ALLOWED_HOSTS = [ 'https://fjrleao.herokuapp.com']
+ALLOWED_HOSTS = [ 'https://fjrleao.herokuapp.com/']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
