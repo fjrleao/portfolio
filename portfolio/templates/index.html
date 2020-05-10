@@ -114,22 +114,22 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
+                        {% for texto in textos %}
+                            {% if texto.sessao == sessao %}
+                                <div class="col xl12 m12 offset-l1 l10 z-depth-2 white">
+                                    {% if texto.titulo != None %}
+                                        <h3>
+                                            {{texto.titulo}}
+                                        </h3>
+                                    {% endif %}
+                                    <h5>
+                                        {{texto.conteudo}}
+                                    </h5>
+                                    
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% for texto in textos %}
-                        {% if texto.sessao == sessao %}
-                            <div class="col xl12 m12 offset-l1 l10 z-depth-2 white">
-                                {% if texto.titulo != None %}
-                                    <h3>
-                                        {{texto.titulo}}
-                                    </h3>
-                                {% endif %}
-                                <h5>
-                                    {{texto.conteudo}}
-                                </h5>
-                                
-                            </div>
-                        {% endif %}
-                    {% endfor %}
                 </section>
             {% endfor %}
         </div>
