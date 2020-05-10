@@ -1,3 +1,4 @@
+//controle de eventos do materialize
 document.addEventListener('DOMContentLoaded', function() {
 	let sidenav = document.querySelector('.sidenav')
     let materialBoxed = document.querySelectorAll('.materialboxed')
@@ -25,4 +26,26 @@ function abreModal(botao){
 	let modal = document.getElementById('modal')
     let initModal = M.Modal.init(modal)
 	initModal.open()
+}
+
+//pega os botoes do menu
+const botoesMenu = document.querySelectorAll('.sidenav li a')
+
+//verifica clique nos botoes do menu
+botoesMenu.forEach(item => {
+	item.addEventListener('click', mudarDeSessao)
+})
+
+function mudarDeSessao(event){
+	event.preventDefault()
+	const elemento = event.target
+	const idElemento = elemento.getAttribute('href')
+	const sessao = document.querySelector(idElemento)
+
+	const pxSessao = sessao.offsetTop
+
+	window.scroll({
+		top: pxSessao,
+		behavior: "smooth"
+	})
 }

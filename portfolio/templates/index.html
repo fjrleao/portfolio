@@ -59,78 +59,78 @@
         <!--CORPO DA PAGINA-->
         <div class="col s12 m12 l8 xl9 container">
             {% for sessao in sessoes %}
-                <div class="row">
-                    <a name={{sessao.slug}}></a>
-                </div>
-                <div class="row titulo">
-                    <nav class="transparent z-depth-0">
-                        <div class="nav-wrapper">
-                            <div class="col right xl2 l2 m8 s11">
-                                <a class="brand-logo black white-text">{{sessao.titulo}}</a>
+                <section id={{sessao.slug}}>
+                    <div class="row">
+                        <a name={{sessao.slug}}></a>
+                    </div>
+                    <div class="row titulo">
+                        <nav class="transparent z-depth-0">
+                            <div class="nav-wrapper">
+                                <div class="col right xl3 l4 m8 s11">
+                                    <a class="brand-logo black white-text">{{sessao.titulo}}</a>
+                                </div>
+                                <div class="col m4 s1">
+                                    <a href="#" data-target="mobile" class=" sidenav-trigger black white-text"><i class="material-icons">menu</i></a>
+                                </div>
                             </div>
-                            <div class="col m4 s1">
-                                <a href="#" data-target="mobile" class=" sidenav-trigger black white-text"><i class="material-icons">menu</i></a>
+                        </nav>
+                    </div>
+                    <div class="row">
+                        <div class="parallax-container">
+                            <div class="parallax">
+                                <img src={{sessao.imagem_parallax}}>
                             </div>
-                        </div>
-                    </nav>
-                </div>
-                <div class="row">
-                    <div class="parallax-container">
-                        <div class="parallax">
-                            <img src={{sessao.imagem_parallax}}>
                         </div>
                     </div>
-                </div>
-                <div class="row conteudo-sessao">
-                    {% for card in cards %}
-                        {% if card.sessao == sessao %}
-                            <div class="col s12 m12 l6 xl6">
-                                <div class="card blue-grey z-depth-3">
-                                    <div class="card-content white-text">
-                                        <span class="card-title">{{card.titulo}}</span>
-                                        <div class="divider"></div>
-                                        <p>
-                                            {{card.conteudo}}
-                                        </p>
-                                    </div>
+                    <div class="row conteudo-sessao">
+                        {% for card in cards %}
+                            {% if card.sessao == sessao %}
+                                <div class="col s12 m12 l6 xl6">
+                                    <div class="card blue-grey z-depth-3">
+                                        <div class="card-content white-text">
+                                            <span class="card-title">{{card.titulo}}</span>
+                                            <div class="divider"></div>
+                                            <p>
+                                                {{card.conteudo}}
+                                            </p>
+                                        </div>
 
-                                    {% for modal in modals %}
-                                        {% if modal.card == card %}
-                                            <div class="card-action">
-                                                <button class="btn waves-effect waves-light light-blue accent-4" type="submit" name="{{modal.slug}}-{{card.slug}}" onClick="abreModal(this)">{{modal.titulo}}
-                                                    <i class="material-icons right">open_in_new</i>
-                                                </button>
-                                                <div id="titulo-{{modal.slug}}-{{card.slug}}" hidden>
-                                                    {{modal.titulo}}
+                                        {% for modal in modals %}
+                                            {% if modal.card == card %}
+                                                <div class="card-action">
+                                                    <button class="btn waves-effect waves-light light-blue accent-4" type="submit" name="{{modal.slug}}-{{card.slug}}" onClick="abreModal(this)">{{modal.titulo}}
+                                                        <i class="material-icons right">open_in_new</i>
+                                                    </button>
+                                                    <div id="titulo-{{modal.slug}}-{{card.slug}}" hidden>
+                                                        {{modal.titulo}}
+                                                    </div>
+                                                    <div id="corpo-{{modal.slug}}-{{card.slug}}" hidden>
+                                                        {{modal.conteudo}}
+                                                    </div>
                                                 </div>
-                                                <div id="corpo-{{modal.slug}}-{{card.slug}}" hidden>
-                                                    {{modal.conteudo}}
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                    {% endfor %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
                                 </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% for texto in textos %}
+                        {% if texto.sessao == sessao %}
+                            <div class="col xl12 m12 offset-l1 l10 z-depth-2 white">
+                                {% if texto.titulo != None %}
+                                    <h3>
+                                        {{texto.titulo}}
+                                    </h3>
+                                {% endif %}
+                                <h5>
+                                    {{texto.conteudo}}
+                                </h5>
+                                
                             </div>
                         {% endif %}
                     {% endfor %}
-                </div>
-                {% for texto in textos %}
-                    {% if texto.sessao == sessao %}
-                        <div class="col xl12 m12 offset-l1 l10 z-depth-2 white">
-                            {% if texto.titulo != None %}
-                                <h3>
-                                    {{texto.titulo}}
-                                </h3>
-                            {% endif %}
-                            <h5>
-                                {{texto.conteudo}}
-                            </h5>
-                            
-                        </div>
-                    {% endif %}
-                {% endfor %}
-               
-                <div class="divider"></div>
+                </section>
             {% endfor %}
         </div>
 
