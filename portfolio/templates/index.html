@@ -18,7 +18,7 @@
 
     <!--BARRA LATERAL-->
     <div class="row">
-        <div class="col l3 xl3">
+        <div class="col l4 xl3">
             <ul class="sidenav sidenav-fixed z-depth-2" id="mobile">
                 <div class="row foto-perfil center-align">
                     <div class="col s12">
@@ -57,7 +57,7 @@
         </div>
 
         <!--CORPO DA PAGINA-->
-        <div class="col s12 m12 l9 xl9 container">
+        <div class="col s12 m12 l8 xl9 container">
             {% for sessao in sessoes %}
                 <div class="row">
                     <a name={{sessao.slug}}></a>
@@ -65,10 +65,10 @@
                 <div class="row titulo">
                     <nav class="transparent z-depth-0">
                         <div class="nav-wrapper">
-                            <div class="col right xl3 l6 m8 s12">
+                            <div class="col right xl2 l2 m8 s11">
                                 <a class="brand-logo black white-text">{{sessao.titulo}}</a>
                             </div>
-                            <div class="col m4 s2">
+                            <div class="col m4 s1">
                                 <a href="#" data-target="mobile" class=" sidenav-trigger black white-text"><i class="material-icons">menu</i></a>
                             </div>
                         </div>
@@ -82,55 +82,54 @@
                     </div>
                 </div>
                 <div class="row conteudo-sessao">
-                    <div class="col">
-                        {% for card in cards %}
-                            {% if card.sessao == sessao %}
-                                <div class="col s12 m10 l8 xl6">
-                                    <div class="card blue-grey z-depth-3">
-                                        <div class="card-content white-text">
-                                            <span class="card-title">{{card.titulo}}</span>
-                                            <div class="divider"></div>
-                                            <p>
-                                                {{card.conteudo}}
-                                            </p>
-                                        </div>
-
-                                        {% for modal in modals %}
-                                            {% if modal.card == card %}
-                                                <div class="card-action">
-                                                    <button class="btn waves-effect waves-light light-blue accent-4" type="submit" name="{{modal.slug}}-{{card.slug}}" onClick="abreModal(this)">{{modal.titulo}}
-                                                        <i class="material-icons right">open_in_new</i>
-                                                    </button>
-                                                    <div id="titulo-{{modal.slug}}-{{card.slug}}" hidden>
-                                                        {{modal.titulo}}
-                                                    </div>
-                                                    <div id="corpo-{{modal.slug}}-{{card.slug}}" hidden>
-                                                        {{modal.conteudo}}
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                        {% endfor %}
+                    {% for card in cards %}
+                        {% if card.sessao == sessao %}
+                            <div class="col s12 m12 l6 xl6">
+                                <div class="card blue-grey z-depth-3">
+                                    <div class="card-content white-text">
+                                        <span class="card-title">{{card.titulo}}</span>
+                                        <div class="divider"></div>
+                                        <p>
+                                            {{card.conteudo}}
+                                        </p>
                                     </div>
+
+                                    {% for modal in modals %}
+                                        {% if modal.card == card %}
+                                            <div class="card-action">
+                                                <button class="btn waves-effect waves-light light-blue accent-4" type="submit" name="{{modal.slug}}-{{card.slug}}" onClick="abreModal(this)">{{modal.titulo}}
+                                                    <i class="material-icons right">open_in_new</i>
+                                                </button>
+                                                <div id="titulo-{{modal.slug}}-{{card.slug}}" hidden>
+                                                    {{modal.titulo}}
+                                                </div>
+                                                <div id="corpo-{{modal.slug}}-{{card.slug}}" hidden>
+                                                    {{modal.conteudo}}
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
                                 </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    {% for texto in textos %}
-                        {% if texto.sessao == sessao %}
-                            <div class="col xl12 m12 offset-l1 l10 z-depth-2 white">
-                                {% if texto.titulo != None %}
-                                    <h3>
-                                        {{texto.titulo}}
-                                    </h3>
-                                {% endif %}
-                                <h5>
-                                    {{texto.conteudo}}
-                                </h5>
-                                
                             </div>
                         {% endif %}
                     {% endfor %}
                 </div>
+                {% for texto in textos %}
+                    {% if texto.sessao == sessao %}
+                        <div class="col xl12 m12 offset-l1 l10 z-depth-2 white">
+                            {% if texto.titulo != None %}
+                                <h3>
+                                    {{texto.titulo}}
+                                </h3>
+                            {% endif %}
+                            <h5>
+                                {{texto.conteudo}}
+                            </h5>
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+               
                 <div class="divider"></div>
             {% endfor %}
         </div>
