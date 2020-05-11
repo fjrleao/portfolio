@@ -25,11 +25,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-#DEBUG = os.environ.get('DEBUG') == True
+#DEBUG = True
+DEBUG = os.environ.get('DEBUG') == True
 
-ALLOWED_HOSTS = []
-#ALLOWED_HOSTS = [ 'https://fjrleao.herokuapp.com']
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'https://fjrleao.herokuapp.com']
 
 # Application definition
 
@@ -123,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/portfolio/static/'
 
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #---------------------------------------#
 ##CONFIGURAÇÕES PARA AMBIENTE DE PRODUÇAO
 #----------------------------------------#
