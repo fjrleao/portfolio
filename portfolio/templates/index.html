@@ -18,7 +18,7 @@
 
     <!--BARRA LATERAL-->
     <div class="row">
-        <div class="col l4 xl3">
+        <div class="col l3">
             <ul class="sidenav sidenav-fixed z-depth-2" id="mobile">
                 <div class="row foto-perfil center-align">
                     <div class="col s12">
@@ -57,14 +57,14 @@
         </div>
 
         <!--CORPO DA PAGINA-->
-        <div class="col s12 m12 l8 xl9">
+        <div class="col s12 m12 l9">
             {% for sessao in sessoes %}
-                <section id={{sessao.slug}}>
+                <section id="{{sessao.slug}}">
                     <div class="row">
                         <a name={{sessao.slug}}></a>
                         <nav class="top-nav black">
                             <div class="nav-wrapper">
-                                <div class="col right xl3 l4 m8 s11">
+                                <div class="col">
                                     <a class="brand-logo black white-text">{{sessao.titulo}}</a>
                                 </div>
                                 <div class="col m4 s1">
