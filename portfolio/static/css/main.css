@@ -21,10 +21,6 @@ li a{
     margin-bottom: 0.5em;
 }
 
-.card-content p{
-    white-space: pre-line;
-}
-
 .titulo{
     margin-top: 1.2em;
 }
@@ -42,7 +38,6 @@ li a{
 h5{
     padding-bottom: 1em;
     padding-left: 1em;
-    white-space: pre-line;
     text-align: start;
 }
 
@@ -63,7 +58,6 @@ h3{
 }
 
 #corpo-modal{
-    white-space: pre-line;
     text-align: justify;
 }
 
