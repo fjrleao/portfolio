@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Sessao(models.Model):
 
@@ -16,7 +17,7 @@ class Sessao(models.Model):
 class Texto(models.Model):
 
     titulo = models.CharField(max_length=120, null=True, blank=True)
-    conteudo = models.TextField(null=False)
+    conteudo = RichTextField()
     sessao = models.ForeignKey(Sessao, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -25,7 +26,7 @@ class Texto(models.Model):
 class Card(models.Model):
 
     titulo = models.CharField(max_length=120, null=False)
-    conteudo = models.TextField(max_length=255, null=False)
+    conteudo = RichTextField()
     sessao = models.ForeignKey(Sessao, on_delete=models.CASCADE)
     slug = models.SlugField()
 
@@ -35,7 +36,7 @@ class Card(models.Model):
 class Modal(models.Model):
 
     titulo = models.CharField(max_length=25, null=False, unique=False)
-    conteudo = models.TextField(null=False)
+    conteudo = RichTextField()
     card = models.ForeignKey(Card, on_delete=models.CASCADE)
     slug = models.SlugField()
 
