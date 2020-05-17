@@ -58,6 +58,7 @@ h3{
 }
 
 #corpo-modal{
+    white-space: pre-line;
     text-align: justify;
 }
 
