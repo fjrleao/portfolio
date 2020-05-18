@@ -125,9 +125,6 @@ USE_TZ = True
 STATIC_URL = '/portfolio/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#---------------------------------------#
-##CONFIGURAÇÕES PARA AMBIENTE DE PRODUÇAO
-#----------------------------------------#
 
 django_heroku.settings(locals())
 
