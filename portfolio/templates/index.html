@@ -15,133 +15,127 @@
 </head>
 
 <body>
-
+    
     <!--BARRA LATERAL-->
-    <div class="row">
-        <div class="col l3">
-            <ul class="sidenav sidenav-fixed z-depth-2" id="mobile">
-                <div class="row foto-perfil center-align">
-                    <div class="col s12">
-                        <img class="responsive-img circle" width="100" src={{perfil.foto}}>
-                    </div>
-                    <div class="col s12">
-                        <h6>{{perfil.nome}}</h6>
-                    </div>
+    <div class="col l3">
+        <ul class="sidenav z-depth-2" id="mobile">
+            <div class="row foto-perfil center-align">
+                <div class="col s12">
+                    <img class="responsive-img circle" width="100" src={{perfil.foto}}>
                 </div>
-
-                {% for sessao in sessoes %}
-                    <li><a href="#{{sessao.slug}}"> <img src={{sessao.icone_menu}} class="icone-menu">{{sessao.titulo}}</a></li>
-                {% endfor %}
-
-                <div class="row divider-menu">
-                    <div class="divider"></div>
+                <div class="col s12">
+                    <h6>{{perfil.nome}}</h6>
                 </div>
-                <div class="row center-align">
-                    {% for link in links %}
-                            {% if link.tipo == 'IC' %}
-                                <div class="col link-icone offset-s3 s1">
-                                    <a href={{link.link}} target="_blank">
-                                        <img src={{link.referencia}} class="icone-menu" alt={{link.nome}}>
-                                    </a>
-                                </div>
-                            {% else %}
-                                <div class="row link">
-                                    <div class="col s12">
-                                        {{link.referencia}} <a href={{link.link}} target="_blank">{{link.nome}}</a>
-                                    </div>
-                                </div>
-                            {% endif %}
-                    {% endfor %}
-                </div>
-            </ul>
-        </div>
+            </div>
 
-        <!--CORPO DA PAGINA-->
-        <div class="col s12 m12 l9">
             {% for sessao in sessoes %}
-                <section id="{{sessao.slug}}">
-                    <div class="row">
-                        <a name={{sessao.slug}}></a>
-                        <nav class="top-nav black">
-                            <div class="nav-wrapper">
-                                <div class="col">
-                                    <a class="brand-logo black white-text">{{sessao.titulo}}</a>
-                                </div>
-                                <div class="col m4 s1">
-                                    <a href="#" data-target="mobile" class=" sidenav-trigger black white-text"><i class="material-icons">menu</i></a>
+                <li><a href="#{{sessao.slug}}"> <img src={{sessao.icone_menu}} class="icone-menu">{{sessao.titulo}}</a></li>
+            {% endfor %}
+
+            <div class="row divider-menu">
+                <div class="divider"></div>
+            </div>
+            <div class="row center-align">
+                {% for link in links %}
+                        {% if link.tipo == 'IC' %}
+                            <div class="col link-icone offset-s3 s1">
+                                <a href={{link.link}} target="_blank">
+                                    <img src={{link.referencia}} class="icone-menu" alt={{link.nome}}>
+                                </a>
+                            </div>
+                        {% else %}
+                            <div class="row link">
+                                <div class="col s12">
+                                    {{link.referencia}} <a href={{link.link}} target="_blank">{{link.nome}}</a>
                                 </div>
                             </div>
-                        </nav>
-                        <div class="parallax-container">
-                            <div class="parallax">
-                                <img src={{sessao.imagem_parallax}}>
+                        {% endif %}
+                {% endfor %}
+            </div>
+        </ul>
+    </div>
+
+    {% for sessao in sessoes %}
+    <section id="{{sessao.slug}}">
+        <div class="">
+            <nav class="top-nav black" data-target="{{sessao.slug}}">
+             <div class="row">
+                <div class="nav-wrapper container">
+                    <a href="#" class="brand-logo right">{{sessao.titulo}}</a>
+                    <a href="#" data-target="mobile" class="sidenav-trigger show-on-large black white-text"><i class="material-icons">menu</i></a>
+                </div>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="parallax-container">
+                <div class="parallax">
+                    <img src={{sessao.imagem_parallax}}>
+                </div>
+            </div>
+        </div>
+        <div class="row conteudo-sessao container">
+            {% for card in cards %}
+                {% if card.sessao == sessao %}
+                    <div class="col s12 m12 l6 xl6">
+                        <div class="card grey lighten-3 z-depth-3">
+                            <div class="card-content black-text">
+                                <span class="card-title">{{card.titulo}}</span>
+                                <div class="divider"></div>
+                                <p>
+                                    {{card.conteudo | safe}}
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                {% for modal in modals %}
+                                    {% if modal.card == card %}
+                                        <a class="orange-text" type="submit" href="#{{sessao.titulo}}" name="{{modal.slug}}-{{card.slug}}" onClick="abreModal(this)">{{modal.titulo}}
+                                            <i class="material-icons right">open_in_new</i>
+                                        </a>
+                                        <div id="titulo-{{modal.slug}}-{{card.slug}}" hidden>
+                                            {{modal.titulo}}
+                                        </div>
+                                        <div id="corpo-{{modal.slug}}-{{card.slug}}" hidden>
+                                            {{modal.conteudo | safe}}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
-                    <div class="row conteudo-sessao">
+                {% endif %}
+            {% endfor %}
+            {% for texto in textos %}
+                {% if texto.sessao == sessao %}
+                    <div class="col grey lighten-3 z-depth-2 white">
+                        {% if texto.titulo != None %}
+                            <h3>
+                                {{texto.titulo}}
+                            </h3>
+                        {% endif %}
+                        <h5>
+                            {{texto.conteudo | safe}}
+                        </h5>
                         
-                        {% for card in cards %}
-                            {% if card.sessao == sessao %}
-                                <div class="col s12 m12 l6 xl6">
-                                    <div class="card grey lighten-3 z-depth-3">
-                                        <div class="card-content black-text">
-                                            <span class="card-title">{{card.titulo}}</span>
-                                            <div class="divider"></div>
-                                            <p>
-                                                {{card.conteudo | safe}}
-                                            </p>
-                                        </div>
-                                        <div class="card-action">
-                                            {% for modal in modals %}
-                                                {% if modal.card == card %}
-                                                    <a class="orange-text" type="submit" href="#{{sessao.titulo}}" name="{{modal.slug}}-{{card.slug}}" onClick="abreModal(this)">{{modal.titulo}}
-                                                        <i class="material-icons right">open_in_new</i>
-                                                    </a>
-                                                    <div id="titulo-{{modal.slug}}-{{card.slug}}" hidden>
-                                                        {{modal.titulo}}
-                                                    </div>
-                                                    <div id="corpo-{{modal.slug}}-{{card.slug}}" hidden>
-                                                        {{modal.conteudo | safe}}
-                                                    </div>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                        {% for texto in textos %}
-                            {% if texto.sessao == sessao %}
-                                <div class="col grey lighten-3 xl12 m12 offset-l1 l10 z-depth-2 white">
-                                    {% if texto.titulo != None %}
-                                        <h3>
-                                            {{texto.titulo}}
-                                        </h3>
-                                    {% endif %}
-                                    <h5>
-                                        {{texto.conteudo | safe}}
-                                    </h5>
-                                    
-                                </div>
-                            {% endif %}
-                        {% endfor %}
                     </div>
-                </section>
+                {% endif %}
             {% endfor %}
         </div>
-
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <h4 id="titulo-modal"></h4>
-                <p id="corpo-modal"></p>
-            </div>
-            <div class="modal-footer">
-                <a class="modal-close waves-effect waves-green btn-flat">Fechar</a>
-            </div>
+    </section>
+    {% endfor %}
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h4 id="titulo-modal"></h4>
+            <p id="corpo-modal"></p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">Fechar</a>
         </div>
     </div>
-    <script type="text/javascript" src={% static 'js/main.js' %}></script>
+
+    
     <script type="text/javascript" src={% static 'js/materialize.js' %}></script>
+    <script type="text/javascript" src={% static 'js/main.js' %}></script>
 </body>
 
 </html>
