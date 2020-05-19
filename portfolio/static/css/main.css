@@ -21,16 +21,6 @@ li a{
     margin-bottom: 0.5em;
 }
 
-.titulo{
-    margin-top: 1.2em;
-}
-
-.titulo h4{
-    padding-bottom: 0.3em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-}
-
 .conteudo-sessao{
     margin-bottom: 4em;
 }
@@ -39,11 +29,13 @@ h5{
     padding-bottom: 1em;
     padding-left: 1em;
     text-align: start;
+    text-align: center;
 }
 
 h3{
     padding-top: 0.5em;
     padding-left: 0.5em;
+    text-align: center;
 }
 
 .row .brand-logo{

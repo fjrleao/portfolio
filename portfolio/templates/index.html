@@ -78,7 +78,7 @@
             {% for card in cards %}
                 {% if card.sessao == sessao %}
                     <div class="col s12 m12 l6 xl6">
-                        <div class="card grey lighten-3 z-depth-3">
+                        <div class="card">
                             <div class="card-content black-text">
                                 <span class="card-title">{{card.titulo}}</span>
                                 <div class="divider"></div>
@@ -107,7 +107,7 @@
             {% endfor %}
             {% for texto in textos %}
                 {% if texto.sessao == sessao %}
-                    <div class="col grey lighten-3 z-depth-2 white">
+                    <div class="col texto">
                         {% if texto.titulo != None %}
                             <h3>
                                 {{texto.titulo}}
@@ -116,7 +116,6 @@
                         <h5>
                             {{texto.conteudo | safe}}
                         </h5>
-                        
                     </div>
                 {% endif %}
             {% endfor %}
